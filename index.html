@@ -117,47 +117,6 @@
 
   /* SECTIONS */
   section{ margin-bottom:56px; }
-  .label-row{ display:flex; align-items:center; gap:12px; margin-bottom:18px; }
-  .label-row .tag{
-    font-family:'Space Mono', monospace;
-    font-size:11px; letter-spacing:.25em; text-transform:uppercase;
-    color:var(--ink); background:var(--gold);
-    padding:4px 10px; border-radius:3px;
-  }
-  .label-row .rule{ flex:1; height:1px; background:var(--line); }
-
-  /* PATIENT INFO — manga stat card */
-  .card{
-    background:
-      repeating-linear-gradient(135deg, rgba(212,175,55,0.035) 0 2px, transparent 2px 14px),
-      var(--panel);
-    border:1px solid var(--line);
-    border-radius:10px;
-    padding:28px 26px;
-    position:relative;
-  }
-  .card::before{
-    content:"";
-    position:absolute; top:0; left:0; right:0; height:3px;
-    background:linear-gradient(90deg, var(--crimson), var(--gold), var(--crimson));
-    border-radius:10px 10px 0 0;
-  }
-  dl.stats{ display:grid; grid-template-columns: 140px 1fr; gap:14px 18px; margin:0; }
-  dl.stats dt{
-    font-family:'Space Mono', monospace;
-    font-size:12px; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--gold-dim);
-    align-self:start;
-  }
-  dl.stats dd{
-    margin:0; font-size:15.5px; color:var(--paper); line-height:1.5;
-  }
-  dl.stats dt::before{ content:"› "; color:var(--crimson); }
-
-  @media (max-width:520px){
-    dl.stats{ grid-template-columns:1fr; }
-    dl.stats dt{ margin-top:8px; }
-  }
 
   /* LETTER */
   .letter-toggle{
@@ -233,21 +192,6 @@
   </div>
 
   <section>
-    <div class="label-row"><span class="tag">Patient Info</span><span class="rule"></span></div>
-    <div class="card">
-      <dl class="stats">
-        <dt>Name</dt><dd>Agrim</dd>
-        <dt>Class</dt><dd>Hardworking Protagonist</dd>
-        <dt>Diagnosis</dt><dd>Chronically cute, terminally humble, unaware of own main-character energy</dd>
-        <dt>Symptoms</dt><dd>Overworking, occasional crying, refusing gifts, low-key inspiring people without realizing it</dd>
-        <dt>Prescription</dt><dd>Cake, rest, laughter, and zero arguments about accepting this gift</dd>
-        <dt>Status</dt><dd>Level up complete — new year loading ✨</dd>
-      </dl>
-    </div>
-  </section>
-
-  <section>
-    <div class="label-row"><span class="tag">The Letter</span><span class="rule"></span></div>
     <button class="letter-toggle" id="letterBtn" aria-expanded="false" aria-controls="letterBox">Open the Letter</button>
     <div class="letter" id="letterBox">
       <div class="letter-body">
