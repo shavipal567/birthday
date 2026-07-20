@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Agrim!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rampart+One&family=Zen+Maru+Gothic:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0908;
+    --panel:#141114;
+    --panel-2:#1c171a;
+    --gold:#d4af37;
+    --gold-bright:#f6dd8b;
+    --gold-dim:#8a7327;
+    --crimson:#9c1f3f;
+    --paper:#f3ead9;
+    --muted:#a79b86;
+    --line: rgba(212,175,55,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(212,175,55,0.07), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(156,31,63,0.08), transparent 45%),
+      var(--ink);
+    color:var(--paper);
+    font-family:'Zen Maru Gothic', sans-serif;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* signature element: falling sakura/petals */
+  .petals{ position:fixed; inset:0; pointer-events:none; z-index:2; overflow:hidden; }
+  .petal{
+    position:absolute; top:-5%;
+    width:10px; height:10px;
+    background: var(--gold);
+    clip-path: path('M5 0 C9 2, 9 6, 5 10 C1 6, 1 2, 5 0 Z');
+    opacity:0.55;
+    animation: fall linear infinite;
+  }
+  @keyframes fall{
+    0%{ transform: translateY(-10vh) translateX(0) rotate(0deg); opacity:0.7;}
+    100%{ transform: translateY(110vh) translateX(40px) rotate(300deg); opacity:0;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .petal{ animation: none; display:none; }
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  .wrap{ max-width:760px; margin:0 auto; padding:64px 24px 96px; position:relative; z-index:3; }
+
+  /* HERO */
+  .hero{ text-align:center; margin-bottom:72px; }
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--gold-dim);
+    margin:0 0 18px;
+  }
+  h1.title{
+    font-family:'Rampart One', cursive;
+    font-size:clamp(38px, 8vw, 68px);
+    line-height:1.1;
+    margin:0;
+    color:var(--gold-bright);
+    text-shadow: 0 0 18px rgba(246,221,139,0.35), 0 0 2px rgba(0,0,0,0.8);
+  }
+  .brush{
+    width:220px; height:14px; margin:20px auto 26px;
+    background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold-bright) 50%, var(--gold) 80%, transparent);
+    clip-path: polygon(0% 55%, 8% 30%, 20% 60%, 32% 20%, 45% 65%, 58% 15%, 70% 55%, 82% 25%, 92% 60%, 100% 40%, 100% 60%, 0% 60%);
+    opacity:.8;
+  }
+  .sub{ font-size:15px; color:var(--muted); letter-spacing:.03em; }
+
+  .frame{
+    margin: 40px auto 0;
+    width:min(320px, 74vw);
+    aspect-ratio: 1 / 1;
+    position:relative;
+    border-radius:50%;
+    padding:10px;
+    background: conic-gradient(from 0deg, var(--gold), var(--gold-dim), var(--crimson), var(--gold-dim), var(--gold));
+    box-shadow: 0 0 0 2px var(--ink), 0 0 40px rgba(212,175,55,0.25);
+  }
+  .frame img{
+    width:100%; height:100%; object-fit:cover;
+    border-radius:50%;
+    display:block;
+    filter: grayscale(15%) contrast(1.05);
+    border:4px solid var(--ink);
+  }
+  .frame::after{
+    content:"祝";
+    position:absolute;
+    bottom:-14px; right:-6px;
+    width:44px; height:44px;
+    background:var(--crimson);
+    color:var(--gold-bright);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Rampart One', cursive;
+    font-size:20px;
+    border:2px solid var(--gold);
+    box-shadow:0 4px 12px rgba(0,0,0,0.5);
+  }
+
+  /* SECTIONS */
+  section{ margin-bottom:56px; }
+  .label-row{ display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .label-row .tag{
+    font-family:'Space Mono', monospace;
+    font-size:11px; letter-spacing:.25em; text-transform:uppercase;
+    color:var(--ink); background:var(--gold);
+    padding:4px 10px; border-radius:3px;
+  }
+  .label-row .rule{ flex:1; height:1px; background:var(--line); }
+
+  /* PATIENT INFO — manga stat card */
+  .card{
+    background:
+      repeating-linear-gradient(135deg, rgba(212,175,55,0.035) 0 2px, transparent 2px 14px),
+      var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:28px 26px;
+    position:relative;
+  }
+  .card::before{
+    content:"";
+    position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg, var(--crimson), var(--gold), var(--crimson));
+    border-radius:10px 10px 0 0;
+  }
+  dl.stats{ display:grid; grid-template-columns: 140px 1fr; gap:14px 18px; margin:0; }
+  dl.stats dt{
+    font-family:'Space Mono', monospace;
+    font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--gold-dim);
+    align-self:start;
+  }
+  dl.stats dd{
+    margin:0; font-size:15.5px; color:var(--paper); line-height:1.5;
+  }
+  dl.stats dt::before{ content:"› "; color:var(--crimson); }
+
+  @media (max-width:520px){
+    dl.stats{ grid-template-columns:1fr; }
+    dl.stats dt{ margin-top:8px; }
+  }
+
+  /* LETTER */
+  .letter-toggle{
+    display:block; margin:0 auto;
+    font-family:'Rampart One', cursive;
+    font-size:15px; letter-spacing:.04em;
+    color:var(--ink); background:var(--gold);
+    border:none; padding:14px 30px; border-radius:30px;
+    cursor:pointer;
+    box-shadow:0 6px 20px rgba(212,175,55,0.25);
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .letter-toggle:hover{ transform:translateY(-2px); background:var(--gold-bright); box-shadow:0 10px 26px rgba(212,175,55,0.35); }
+  .letter-toggle:focus-visible{ outline:3px solid var(--gold-bright); outline-offset:3px; }
+
+  .letter{
+    max-height:0; overflow:hidden;
+    opacity:0;
+    transition: max-height .6s ease, opacity .5s ease, margin .5s ease;
+    margin-top:0;
+  }
+  .letter.open{ max-height:2000px; opacity:1; margin-top:28px; }
+
+  .letter-body{
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:34px 30px;
+    font-size:16px; line-height:1.85;
+    color:#e9e0cc;
+    position:relative;
+  }
+  .letter-body::before{
+    content:"";
+    position:absolute; inset:8px;
+    border:1px solid rgba(212,175,55,0.18);
+    border-radius:6px;
+    pointer-events:none;
+  }
+  .letter-body p{ margin:0 0 18px; }
+  .letter-body p:last-child{ margin-bottom:0; }
+  .signoff{
+    font-family:'Rampart One', cursive;
+    color:var(--gold-bright);
+    font-size:17px;
+    margin-top:22px !important;
+  }
+
+  footer{
+    text-align:center;
+    font-family:'Space Mono', monospace;
+    font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--gold-dim);
+    padding-top:20px;
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<div class="petals" aria-hidden="true"></div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">A Celebration Scroll</p>
+    <h1 class="title">Happy Birthday<br>Agrim</h1>
+    <div class="brush" aria-hidden="true"></div>
+    <p class="sub">Another chapter unlocked ✦</p>
+    <div class="frame">
+      <img src="agrim.jpg" alt="Agrim">
+    </div>
+  </div>
+
+  <section>
+    <div class="label-row"><span class="tag">Patient Info</span><span class="rule"></span></div>
+    <div class="card">
+      <dl class="stats">
+        <dt>Name</dt><dd>Agrim</dd>
+        <dt>Class</dt><dd>Hardworking Protagonist</dd>
+        <dt>Diagnosis</dt><dd>Chronically cute, terminally humble, unaware of own main-character energy</dd>
+        <dt>Symptoms</dt><dd>Overworking, occasional crying, refusing gifts, low-key inspiring people without realizing it</dd>
+        <dt>Prescription</dt><dd>Cake, rest, laughter, and zero arguments about accepting this gift</dd>
+        <dt>Status</dt><dd>Level up complete — new year loading ✨</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <div class="label-row"><span class="tag">The Letter</span><span class="rule"></span></div>
+    <button class="letter-toggle" id="letterBtn" aria-expanded="false" aria-controls="letterBox">Open the Letter</button>
+    <div class="letter" id="letterBox">
+      <div class="letter-body">
+        <p>Dear Agrim,</p>
+        <p>A veryyyyy happy birthday.</p>
+        <p>Tumne gift ka mana kiya tha, but mai toh mai hu.. So this is from my side.</p>
+        <p>Ik I haven't met you even once in my wholeeeeee life though Ik i will someday fs.</p>
+        <p>To the boy who has always been my inspiration (ik you don't know this 😂).</p>
+        <p>Kitna bhi keh lo, ro lo, gaali de do... You work hard. Everyday. And not only your work, kudos to you for balancing everything altogether.</p>
+        <p>Will not take much of your time, hbd once again to the funniest, hardworking, optimistic and cutest boy I know. Will always be by your side. 🫂 🩷🎉🎊✨</p>
+        <p>Zyaada cringe hogya nvm</p>
+        <p class="signoff">— always in your corner ✦</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>Made with gold ink &amp; way too many feelings</footer>
+</div>
+
+<script>
+  // falling petals
+  const container = document.querySelector('.petals');
+  const count = window.innerWidth < 600 ? 16 : 28;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    const left = Math.random() * 100;
+    const duration = 8 + Math.random() * 10;
+    const delay = Math.random() * 12;
+    const scale = 0.6 + Math.random() * 1.1;
+    p.style.left = left + 'vw';
+    p.style.animationDuration = duration + 's';
+    p.style.animationDelay = '-' + delay + 's';
+    p.style.transform = `scale(${scale})`;
+    container.appendChild(p);
+  }
+
+  // letter toggle
+  const btn = document.getElementById('letterBtn');
+  const box = document.getElementById('letterBox');
+  btn.addEventListener('click', () => {
+    const isOpen = box.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    btn.textContent = isOpen ? 'Close the Letter' : 'Open the Letter';
+    if (isOpen) {
+      setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 300);
+    }
+  });
+</script>
+
+</body>
+</html>
